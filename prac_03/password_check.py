@@ -5,9 +5,21 @@ Display asterisks same length as password
 
 MINIMUM_PASSWORD_LENGTH = 8
 
-password = input("Enter minimum {} character password: ".format(MINIMUM_PASSWORD_LENGTH))
 
-while len(password) < MINIMUM_PASSWORD_LENGTH:
-    password = input("Enter minimum {} character password: ".format(MINIMUM_PASSWORD_LENGTH))
+def main():
+    password = get_password(MINIMUM_PASSWORD_LENGTH)
+    print_asterisks(password)
 
-print('*' * len(password))
+
+def get_password(minimum_password_length):
+    password = input("Enter minimum {} character password: ".format(minimum_password_length))
+    while len(password) < minimum_password_length:
+        password = input("Enter minimum {} character password: ".format(minimum_password_length))
+    return password
+
+
+def print_asterisks(password):
+    print('*' * len(password))
+
+
+main()
