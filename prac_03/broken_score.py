@@ -2,21 +2,26 @@
 """
 
 
+"""Broken Score Program (fixed)
+"""
+
+
 def main():
-    score = get_score()
-    print(score)
-
-
-def get_score():
     score = float(input("Enter score: "))
-    if 50 <= score < 90:
-        return "Passable"
-    elif 90 <= score <= 100:
-        return "Excellent"
-    elif 0 <= score < 50:
-        return "Bad"
-    else:
+    result = determine_result(score)
+    print(result)
+
+
+def determine_result(score):
+    while not 0 <= score <= 100:
         return "Invalid score"
+    if score < 50:
+        return "Bad"
+    elif score < 90:
+        return "Passable"
+    elif score <= 100:
+        return "Excellent"
 
 
 main()
+
